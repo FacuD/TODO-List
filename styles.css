@@ -103,12 +103,24 @@ input:focus {
 }
 
 .task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: var(--primary);
-  padding: 15px;
+  padding: 25px;
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 22px;
   color: var(--dark);
   cursor: pointer;
+}
+
+.deleteButton {
+  border: none;
+  background-color: var(--secondary);
+  color: var(--dark);
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
 }
 
 .done {

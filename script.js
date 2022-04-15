@@ -18,12 +18,25 @@ const addNewTask = (event) => {
   event.preventDefault(); // Prevent the form from submitting
   const { value } = event.target.taskText; // Get the value of the input
   if (!value) return; // If the value is empty, don't do anything
+  // Create the new task
   const task = document.createElement("div");
   task.classList.add("task", "roundBorder");
   task.addEventListener("click", changeTaskStatus);
   task.textContent = value;
+  // Create the delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("deleteButton", "roundBorder");
+  deleteButton.textContent = "X";
+  deleteButton.addEventListener("click", deleteTask);
+  task.append(deleteButton);
+  // Add the task to the list
   taskList.prepend(task);
-  event.target.reset(); // Reset the form
+  // Reset the form
+  event.target.reset();
+};
+
+const deleteTask = (event) => {
+  taskList.removeChild(event.target.parentElement);
 };
 
 const changeTaskStatus = (event) => {
