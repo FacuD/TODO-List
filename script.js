@@ -20,9 +20,11 @@ const addNewTask = (event) => {
   if (!value) return; // If the value is empty, don't do anything
   // Create the new task
   const task = document.createElement("div");
+  const taskText = document.createElement("span");
+  taskText.innerText = value;
   task.classList.add("task", "roundBorder");
   task.addEventListener("click", changeTaskStatus);
-  task.textContent = value;
+  task.append(taskText);
   // Create the delete button
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("deleteButton", "roundBorder");
